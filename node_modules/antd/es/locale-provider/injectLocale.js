@@ -1,3 +1,4 @@
+import _extends from 'babel-runtime/helpers/extends';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _createClass from 'babel-runtime/helpers/createClass';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
@@ -22,12 +23,12 @@ export default (function (componentName, defaultLocale) {
 
                     var localeFromContext = antLocale && antLocale[componentName];
                     var localeFromProps = this.props.locale || {};
-                    return Object.assign({}, defaultLocale, localeFromContext || {}, localeFromProps);
+                    return _extends({}, defaultLocale, localeFromContext || {}, localeFromProps);
                 }
             }]);
 
             return _a;
-        }(Component), _a.propTypes = ComponentWithStatics.propTypes, _a.defaultProps = ComponentWithStatics.defaultProps, _a.contextTypes = Object.assign({}, ComponentWithStatics.context || {}, { antLocale: PropTypes.object }), _a;
+        }(Component), _a.propTypes = ComponentWithStatics.propTypes, _a.defaultProps = ComponentWithStatics.defaultProps, _a.contextTypes = _extends({}, ComponentWithStatics.context || {}, { antLocale: PropTypes.object }), _a;
         var _a;
     };
 });

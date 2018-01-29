@@ -20,7 +20,7 @@ var Dragger = function (_React$Component) {
         value: function render() {
             var props = this.props;
 
-            return React.createElement(Upload, _extends({}, props, { type: 'drag', style: Object.assign({}, props.style, { height: props.height }) }));
+            return React.createElement(Upload, _extends({}, props, { type: 'drag', style: _extends({}, props.style, { height: props.height }) }));
         }
     }]);
 

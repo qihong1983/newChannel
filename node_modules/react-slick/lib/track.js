@@ -32,7 +32,6 @@ var getSlideClasses = function getSlideClasses(spec) {
   } else {
     index = spec.index;
   }
-
   slickCloned = index < 0 || index >= spec.slideCount;
   if (spec.centerMode) {
     centerOffset = Math.floor(spec.slidesToShow / 2);
@@ -96,14 +95,7 @@ var renderSlides = function renderSlides(spec) {
       child = _react2.default.createElement('div', null);
     }
     var childStyle = getSlideStyle((0, _objectAssign2.default)({}, spec, { index: index }));
-    var slickClasses = getSlideClasses((0, _objectAssign2.default)({ index: index }, spec));
-    var cssClasses;
-
-    if (child.props.className) {
-      cssClasses = (0, _classnames2.default)(slickClasses, child.props.className);
-    } else {
-      cssClasses = slickClasses;
-    }
+    var slideClass = child.props.className || '';
 
     var onClick = function onClick(e) {
       child.props && child.props.onClick && child.props.onClick(e);
@@ -115,7 +107,7 @@ var renderSlides = function renderSlides(spec) {
     slides.push(_react2.default.cloneElement(child, {
       key: 'original' + getKey(child, index),
       'data-index': index,
-      className: cssClasses,
+      className: (0, _classnames2.default)(getSlideClasses((0, _objectAssign2.default)({ index: index }, spec)), slideClass),
       tabIndex: '-1',
       style: (0, _objectAssign2.default)({ outline: 'none' }, child.props.style || {}, childStyle),
       onClick: onClick
@@ -130,7 +122,7 @@ var renderSlides = function renderSlides(spec) {
         preCloneSlides.push(_react2.default.cloneElement(child, {
           key: 'precloned' + getKey(child, key),
           'data-index': key,
-          className: cssClasses,
+          className: (0, _classnames2.default)(getSlideClasses((0, _objectAssign2.default)({ index: key }, spec)), slideClass),
           style: (0, _objectAssign2.default)({}, child.props.style || {}, childStyle),
           onClick: onClick
         }));
@@ -141,7 +133,7 @@ var renderSlides = function renderSlides(spec) {
         postCloneSlides.push(_react2.default.cloneElement(child, {
           key: 'postcloned' + getKey(child, key),
           'data-index': key,
-          className: cssClasses,
+          className: (0, _classnames2.default)(getSlideClasses((0, _objectAssign2.default)({ index: key }, spec)), slideClass),
           style: (0, _objectAssign2.default)({}, child.props.style || {}, childStyle),
           onClick: onClick
         }));

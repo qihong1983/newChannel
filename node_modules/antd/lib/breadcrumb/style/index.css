@@ -1,3 +1,6 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable declaration-bang-space-before */
+/* stylelint-disable declaration-bang-space-before */
 .ant-breadcrumb {
   color: rgba(0, 0, 0, 0.65);
   font-size: 12px;
@@ -10,7 +13,7 @@
   color: #49a9ee;
 }
 .ant-breadcrumb > span:last-child {
-  font-weight: bold;
+  font-weight: 500;
   color: rgba(0, 0, 0, 0.65);
 }
 .ant-breadcrumb > span:last-child .ant-breadcrumb-separator {

@@ -50,13 +50,13 @@ function genPercentAdd() {
     };
 }
 function getFileItem(file, fileList) {
-    var matchKey = file.uid ? 'uid' : 'name';
+    var matchKey = file.uid !== undefined ? 'uid' : 'name';
     return fileList.filter(function (item) {
         return item[matchKey] === file[matchKey];
     })[0];
 }
 function removeFileItem(file, fileList) {
-    var matchKey = file.uid ? 'uid' : 'name';
+    var matchKey = file.uid !== undefined ? 'uid' : 'name';
     var removed = fileList.filter(function (item) {
         return item[matchKey] !== file[matchKey];
     });

@@ -243,7 +243,7 @@ var Transfer = function (_React$Component) {
                 }
             }
             if (nextProps.selectedKeys) {
-                var _targetKeys = nextProps.targetKeys;
+                var _targetKeys = nextProps.targetKeys || [];
                 this.setState({
                     sourceSelectedKeys: nextProps.selectedKeys.filter(function (key) {
                         return !_targetKeys.includes(key);

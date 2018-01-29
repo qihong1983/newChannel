@@ -1,3 +1,4 @@
+import _extends from 'babel-runtime/helpers/extends';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _createClass from 'babel-runtime/helpers/createClass';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
@@ -19,7 +20,7 @@ var LocaleProvider = function (_React$Component) {
         key: 'getChildContext',
         value: function getChildContext() {
             return {
-                antLocale: Object.assign({}, this.props.locale, { exist: true })
+                antLocale: _extends({}, this.props.locale, { exist: true })
             };
         }
     }, {

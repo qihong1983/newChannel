@@ -23,7 +23,8 @@ function getRequestAnimationFrame() {
         return function () {};
     }
     if (window.requestAnimationFrame) {
-        return window.requestAnimationFrame;
+        // https://github.com/vuejs/vue/issues/4465
+        return window.requestAnimationFrame.bind(window);
     }
     var prefix = availablePrefixs.filter(function (key) {
         return key + 'RequestAnimationFrame' in window;

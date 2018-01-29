@@ -13,15 +13,19 @@ export interface TagProps {
     afterClose?: Function;
     style?: React.CSSProperties;
 }
-export default class Tag extends React.Component<TagProps, any> {
+export interface TagState {
+    closing: boolean;
+    closed: boolean;
+}
+export default class Tag extends React.Component<TagProps, TagState> {
     static CheckableTag: typeof CheckableTag;
     static defaultProps: {
         prefixCls: string;
         closable: boolean;
     };
     constructor(props: TagProps);
-    close: (e: any) => void;
-    animationEnd: (_: any, existed: any) => void;
-    isPresetColor(color: any): boolean;
+    close: (e: React.MouseEvent<HTMLElement>) => void;
+    animationEnd: (_: string, existed: boolean) => void;
+    isPresetColor(color?: string): boolean;
     render(): JSX.Element;
 }

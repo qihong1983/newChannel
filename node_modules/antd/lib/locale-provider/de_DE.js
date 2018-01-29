@@ -58,6 +58,12 @@ exports['default'] = {
     },
     Select: {
         notFoundContent: 'Nicht gefunden'
+    },
+    Upload: {
+        uploading: 'Hochladen...',
+        removeFile: 'Datei entfernen',
+        uploadError: 'Fehler beim Hochladen',
+        previewFile: 'Dateivorschau'
     }
 };
 module.exports = exports['default'];

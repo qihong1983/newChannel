@@ -34,10 +34,12 @@ exports['default'] = {
     TimePicker: _nl_NL6['default'],
     Calendar: _nl_NL8['default'],
     Table: {
-        filterTitle: 'Filter Menu',
+        filterTitle: 'Filteren',
         filterConfirm: 'OK',
         filterReset: 'Reset',
-        emptyText: 'Geen gegevens'
+        emptyText: 'Geen gegevens',
+        selectAll: 'Selecteer huidige pagina',
+        selectInvert: 'Deselecteer huidige pagina'
     },
     Modal: {
         okText: 'OK',
@@ -56,6 +58,12 @@ exports['default'] = {
     },
     Select: {
         notFoundContent: 'Niet gevonden'
+    },
+    Upload: {
+        uploading: 'Uploaden...',
+        removeFile: 'Verwijder bestand',
+        uploadError: 'Fout tijdens uploaden',
+        previewFile: 'Bekijk bestand'
     }
 };
 module.exports = exports['default'];

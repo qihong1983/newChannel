@@ -5,7 +5,7 @@ export interface CollapseProps {
     defaultActiveKey?: Array<string>;
     /** 手风琴效果 */
     accordion?: boolean;
-    onChange?: (key: string) => void;
+    onChange?: (key: string | string[]) => void;
     style?: React.CSSProperties;
     className?: string;
     bordered?: boolean;

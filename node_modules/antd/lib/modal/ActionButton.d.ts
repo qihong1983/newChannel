@@ -1,7 +1,8 @@
 /// <reference types="react" />
 import React from 'react';
+import { ButtonType } from '../button/button';
 export interface ActionButtonProps {
-    type?: 'primary' | 'dashed';
+    type?: ButtonType;
     actionFn: Function;
     closeModal: Function;
     autoFocus?: Boolean;

@@ -31,6 +31,7 @@ export interface TabPaneProps {
     closable?: boolean;
     className?: string;
     disabled?: boolean;
+    forceRender?: boolean;
 }
 export default class Tabs extends React.Component<TabsProps, any> {
     static TabPane: React.ClassicComponentClass<TabPaneProps>;

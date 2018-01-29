@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
@@ -44,7 +48,7 @@ var LocaleProvider = function (_React$Component) {
         key: 'getChildContext',
         value: function getChildContext() {
             return {
-                antLocale: Object.assign({}, this.props.locale, { exist: true })
+                antLocale: (0, _extends3['default'])({}, this.props.locale, { exist: true })
             };
         }
     }, {

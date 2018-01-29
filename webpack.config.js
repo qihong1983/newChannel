@@ -2,6 +2,7 @@ let webpack = require('webpack');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
 let htmlWebpackPlugin = require('html-webpack-plugin');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
+let AssetsPlugin = require('assets-webpack-plugin');
 let CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var path = require("path");
 
@@ -11,17 +12,14 @@ module.exports = {
     devtool: '#source-map',
     entry: {
         // build: "./src/app.js",
-        app: [
-            'babel-polyfill',
-            './src/app.js'
-        ],
-        vendor: ['react'] //提取react模块作为公共的js文件
+        app: ['babel-polyfill', './src/app.js'],
+        vendor: ['react', 'prop-types', 'redux', 'react-router-redux', 'redux-thunk', 'react-router', 'antd'] //提取react模块作为公共的js文件
     },
     output: {
-        filename: '[name].js', //注意这里，用[name]可以自动生成路由名称对应的js文件
+        filename: '[chunkhash:8].[name].js', //注意这里，用[name]可以自动生成路由名称对应的js文件
         path: path.join(__dirname, 'build'),
         publicPath: '/',
-        chunkFilename: '[name].js?[chunkhash:8]' //注意这里，用[name]可以自动生成路由名称对应的js文件
+        chunkFilename: '[chunkhash:8].[name].js' //注意这里，用[name]可以自动生成路由名称对应的js文件
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -99,7 +97,7 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({}),
         // new ExtractTextPlugin("styles.css.[contenthash:8]"),
-        new ExtractTextPlugin("styles.css"),
+        new ExtractTextPlugin("[contenthash:8].styles.css"),
         new CopyWebpackPlugin([{
             from: __dirname + '/src'
         }]),
@@ -108,12 +106,18 @@ module.exports = {
             filename: "index.html",
             template: "templates/demo.html",
             hash: true, // true | false。如果是true，会给所有包含的script和css添加一个唯一的webpack编译hash值。这对于缓存清除非常有用。
-            inject: true,
-            chunks: ["app"]
+            inject: false
         }),
         new CommonsChunkPlugin({
             names: ['vendor'],
-            filename: 'vendor.js'
+            filename: '[chunkhash:8].vendor.js'
+        }),
+        new AssetsPlugin({
+            filename: 'build/webpack.assets.js', //自己的build路径
+            processOutput: function(assets) {
+                return 'window.WEBPACK_ASSETS=' + JSON.stringify(assets);
+            }
         })
+
     ]
 }

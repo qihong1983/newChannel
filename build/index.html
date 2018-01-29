@@ -37,7 +37,19 @@ body {
   width: 100%;
 }
    </style>
-<link href="/styles.css?4962262157d5c7f01a92" rel="stylesheet"></head>
+
+   <script>
+    document.write('<script type="text/javascript" src="/webpack.assets.js?v='+Math.random()+'"><\/script>');
+</script>
+
+<script>
+    document.write('<link href="' + window.WEBPACK_ASSETS.app.css + '" rel="stylesheet" media="screen" />');
+</script>
+
+
+
+
+</head>
 
 <body style="background-color:white">
     <div class="container">
@@ -45,15 +57,21 @@ body {
         </div>
     </div>
 
-    <script src="/vendor.js"></script>
+    <!-- <script src="/vendor.js?t=20180111"></script> -->
 
-   <script src="/app.js?4962262157d5c7f01a92"></script>
 
     <script>
     console.log('这里执行了');
 
-   JSON.stringify("./[object Object]");
     </script>
-<script type="text/javascript" src="/app.js?4962262157d5c7f01a92"></script></body>
+
+    <script>
+    document.write('<script type="text/javascript" src="' + window.WEBPACK_ASSETS.vendor.js + '"><\/script>');
+</script>
+    <script>
+    document.write('<script type="text/javascript" src="' + window.WEBPACK_ASSETS.app.js + '"><\/script>');
+</script>
+
+</body>
 
 </html>

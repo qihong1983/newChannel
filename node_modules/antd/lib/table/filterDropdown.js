@@ -74,6 +74,17 @@ var FilterMenu = function (_React$Component) {
 
         var _this = (0, _possibleConstructorReturn3['default'])(this, (FilterMenu.__proto__ || Object.getPrototypeOf(FilterMenu)).call(this, props));
 
+        _this.setNeverShown = function (column) {
+            var rootNode = _reactDom2['default'].findDOMNode(_this);
+            var filterBelongToScrollBody = !!(0, _domClosest2['default'])(rootNode, '.ant-table-scroll');
+            if (filterBelongToScrollBody) {
+                // When fixed column have filters, there will be two dropdown menus
+                // Filter dropdown menu inside scroll body should never be shown
+                // To fix https://github.com/ant-design/ant-design/issues/5010 and
+                // https://github.com/ant-design/ant-design/issues/7909
+                _this.neverShown = !!column.fixed;
+            }
+        };
         _this.setSelectedKeys = function (_ref) {
             var selectedKeys = _ref.selectedKeys;
 
@@ -135,20 +146,14 @@ var FilterMenu = function (_React$Component) {
         value: function componentDidMount() {
             var column = this.props.column;
 
-            var rootNode = _reactDom2['default'].findDOMNode(this);
-            var filterBelongToScrollBody = !!(0, _domClosest2['default'])(rootNode, '.ant-table-scroll');
-            if (filterBelongToScrollBody && column.fixed) {
-                // When fixed column have filters, there will be two dropdown menus
-                // Filter dropdown menu inside scroll body should never be shown
-                // To fix https://github.com/ant-design/ant-design/issues/5010
-                this.neverShown = true;
-            }
+            this.setNeverShown(column);
         }
     }, {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
             var column = nextProps.column;
 
+            this.setNeverShown(column);
             var newState = {};
             if ('selectedKeys' in nextProps) {
                 newState.selectedKeys = nextProps.selectedKeys;

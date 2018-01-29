@@ -70,9 +70,13 @@ var Timeline = function (_React$Component) {
                 restProps = __rest(_a, ["prefixCls", "children", "pending", "className"]);
             var pendingNode = typeof pending === 'boolean' ? null : pending;
             var classString = (0, _classnames2['default'])(prefixCls, (0, _defineProperty3['default'])({}, prefixCls + '-pending', !!pending), className);
-            var items = _react2['default'].Children.map(children, function (ele, idx) {
+            // Remove falsy items
+            var falsylessItems = _react.Children.toArray(children).filter(function (item) {
+                return !!item;
+            });
+            var items = _react.Children.map(falsylessItems, function (ele, idx) {
                 return _react2['default'].cloneElement(ele, {
-                    last: idx === children.length - 1
+                    last: idx === _react.Children.count(falsylessItems) - 1
                 });
             });
             var pendingItem = !!pending ? _react2['default'].createElement(

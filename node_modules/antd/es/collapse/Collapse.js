@@ -52,7 +52,7 @@ Collapse.Panel = RcCollapse.Panel;
 Collapse.defaultProps = {
     prefixCls: 'ant-collapse',
     bordered: true,
-    openAnimation: Object.assign({}, animation, {
+    openAnimation: _extends({}, animation, {
         appear: function appear() {}
     })
 };

@@ -36,8 +36,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = require('react-dom');
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -90,7 +88,9 @@ var Spin = function (_React$Component) {
         value: function componentDidMount() {
             if (!(0, _isCssAnimationSupported2['default'])()) {
                 // Show text in IE8/9
-                (0, _reactDom.findDOMNode)(this).className += ' ' + this.props.prefixCls + '-show-text';
+                this.setState({
+                    notCssAnimationSupported: true
+                });
             }
         }
     }, {
@@ -118,7 +118,7 @@ var Spin = function (_React$Component) {
             if (currentSpinning && !spinning) {
                 this.debounceTimeout = setTimeout(function () {
                     return _this2.setState({ spinning: spinning });
-                }, 300);
+                }, 200);
                 if (this.delayTimeout) {
                     clearTimeout(this.delayTimeout);
                 }
@@ -146,9 +146,11 @@ var Spin = function (_React$Component) {
                 prefixCls = _a.prefixCls,
                 tip = _a.tip,
                 wrapperClassName = _a.wrapperClassName,
-                restProps = __rest(_a, ["className", "size", "prefixCls", "tip", "wrapperClassName"]);var spinning = this.state.spinning;
+                restProps = __rest(_a, ["className", "size", "prefixCls", "tip", "wrapperClassName"]);var _state = this.state,
+                spinning = _state.spinning,
+                notCssAnimationSupported = _state.notCssAnimationSupported;
 
-            var spinClassName = (0, _classnames2['default'])(prefixCls, (_classNames = {}, (0, _defineProperty3['default'])(_classNames, prefixCls + '-sm', size === 'small'), (0, _defineProperty3['default'])(_classNames, prefixCls + '-lg', size === 'large'), (0, _defineProperty3['default'])(_classNames, prefixCls + '-spinning', spinning), (0, _defineProperty3['default'])(_classNames, prefixCls + '-show-text', !!tip), _classNames), className);
+            var spinClassName = (0, _classnames2['default'])(prefixCls, (_classNames = {}, (0, _defineProperty3['default'])(_classNames, prefixCls + '-sm', size === 'small'), (0, _defineProperty3['default'])(_classNames, prefixCls + '-lg', size === 'large'), (0, _defineProperty3['default'])(_classNames, prefixCls + '-spinning', spinning), (0, _defineProperty3['default'])(_classNames, prefixCls + '-show-text', !!tip || notCssAnimationSupported), _classNames), className);
             // fix https://fb.me/react-unknown-prop
             var divProps = (0, _omit2['default'])(restProps, ['spinning', 'delay']);
             var spinElement = _react2['default'].createElement(

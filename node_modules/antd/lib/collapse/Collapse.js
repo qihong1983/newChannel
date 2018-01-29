@@ -88,7 +88,7 @@ Collapse.Panel = _rcCollapse2['default'].Panel;
 Collapse.defaultProps = {
     prefixCls: 'ant-collapse',
     bordered: true,
-    openAnimation: Object.assign({}, _openAnimation2['default'], {
+    openAnimation: (0, _extends3['default'])({}, _openAnimation2['default'], {
         appear: function appear() {}
     })
 };

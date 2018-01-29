@@ -15,6 +15,7 @@ export interface SelectionCheckboxAllProps {
     data: any[];
     prefixCls: string | undefined;
     onSelect: (key: string, index: number, selectFunc: any) => void;
+    hideDefaultSelections?: boolean;
     selections?: SelectionDecorator[] | boolean;
     getPopupContainer: (triggerNode?: Element) => HTMLElement;
 }

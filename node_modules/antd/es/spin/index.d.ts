@@ -4,6 +4,7 @@ export interface SpinProps {
     prefixCls?: string;
     className?: string;
     spinning?: boolean;
+    style?: React.CSSProperties;
     size?: 'small' | 'default' | 'large';
     tip?: string;
     delay?: number;

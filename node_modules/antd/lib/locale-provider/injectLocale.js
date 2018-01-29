@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
@@ -44,11 +48,11 @@ exports['default'] = function (componentName, defaultLocale) {
 
                     var localeFromContext = antLocale && antLocale[componentName];
                     var localeFromProps = this.props.locale || {};
-                    return Object.assign({}, defaultLocale, localeFromContext || {}, localeFromProps);
+                    return (0, _extends3['default'])({}, defaultLocale, localeFromContext || {}, localeFromProps);
                 }
             }]);
             return _a;
-        }(Component), _a.propTypes = ComponentWithStatics.propTypes, _a.defaultProps = ComponentWithStatics.defaultProps, _a.contextTypes = Object.assign({}, ComponentWithStatics.context || {}, { antLocale: _propTypes2['default'].object }), _a;
+        }(Component), _a.propTypes = ComponentWithStatics.propTypes, _a.defaultProps = ComponentWithStatics.defaultProps, _a.contextTypes = (0, _extends3['default'])({}, ComponentWithStatics.context || {}, { antLocale: _propTypes2['default'].object }), _a;
         var _a;
     };
 };

@@ -75,17 +75,24 @@ var Dropdown = function (_React$Component) {
             var _props = this.props,
                 children = _props.children,
                 prefixCls = _props.prefixCls,
-                overlay = _props.overlay;
+                overlay = _props.overlay,
+                trigger = _props.trigger,
+                disabled = _props.disabled;
 
             var dropdownTrigger = (0, _react.cloneElement)(children, {
-                className: (0, _classnames2['default'])(children.props.className, prefixCls + '-trigger')
+                className: (0, _classnames2['default'])(children.props.className, prefixCls + '-trigger'),
+                disabled: disabled
             });
+            // menu cannot be selectable in dropdown defaultly
+            var overlayProps = overlay && overlay.props;
+            var selectable = overlayProps && 'selectable' in overlayProps ? overlayProps.selectable : false;
             var fixedModeOverlay = (0, _react.cloneElement)(overlay, {
-                mode: 'vertical'
+                mode: 'vertical',
+                selectable: selectable
             });
             return _react2['default'].createElement(
                 _rcDropdown2['default'],
-                (0, _extends3['default'])({ transitionName: this.getTransitionName() }, this.props, { overlay: fixedModeOverlay }),
+                (0, _extends3['default'])({}, this.props, { transitionName: this.getTransitionName(), trigger: disabled ? [] : trigger, overlay: fixedModeOverlay }),
                 dropdownTrigger
             );
         }

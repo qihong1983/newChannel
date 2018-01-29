@@ -139,7 +139,7 @@ var Slider = function (_React$Component) {
       // if 'unslick' responsive breakpoint setting used, just return the <Slider> tag nested HTML
       return _react2.default.createElement(
         'div',
-        null,
+        { className: this.props.className + ' unslicked' },
         children
       );
     } else {

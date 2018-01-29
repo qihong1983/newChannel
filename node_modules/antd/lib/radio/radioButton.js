@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
@@ -45,7 +49,7 @@ var RadioButton = function (_React$Component) {
     (0, _createClass3['default'])(RadioButton, [{
         key: 'render',
         value: function render() {
-            var radioProps = Object.assign({}, this.props);
+            var radioProps = (0, _extends3['default'])({}, this.props);
             if (this.context.radioGroup) {
                 radioProps.onChange = this.context.radioGroup.onChange;
                 radioProps.checked = this.props.value === this.context.radioGroup.value;

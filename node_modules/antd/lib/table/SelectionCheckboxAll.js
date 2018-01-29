@@ -62,7 +62,7 @@ var SelectionCheckboxAll = function (_React$Component) {
             var checked = e.target.checked;
             _this.props.onSelect(checked ? 'all' : 'removeAll', 0, null);
         };
-        _this.defaultSelections = [{
+        _this.defaultSelections = props.hideDefaultSelections ? [] : [{
             key: 'all',
             text: props.locale.selectAll,
             onSelect: function onSelect() {}
@@ -204,7 +204,7 @@ var SelectionCheckboxAll = function (_React$Component) {
                     { className: selectionPrefixCls + '-menu', selectedKeys: [] },
                     this.renderMenus(newSelections)
                 );
-                customSelections = _react2['default'].createElement(
+                customSelections = newSelections.length > 0 ? _react2['default'].createElement(
                     _dropdown2['default'],
                     { overlay: menu, getPopupContainer: getPopupContainer },
                     _react2['default'].createElement(
@@ -212,7 +212,7 @@ var SelectionCheckboxAll = function (_React$Component) {
                         { className: selectionPrefixCls + '-down' },
                         _react2['default'].createElement(_icon2['default'], { type: 'down' })
                     )
-                );
+                ) : null;
             }
             return _react2['default'].createElement(
                 'div',

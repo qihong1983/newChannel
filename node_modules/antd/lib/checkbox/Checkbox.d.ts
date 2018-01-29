@@ -8,11 +8,12 @@ export interface AbstractCheckboxProps {
     checked?: boolean;
     style?: React.CSSProperties;
     disabled?: boolean;
-    onChange?: React.FormEventHandler<any>;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
     onMouseEnter?: React.MouseEventHandler<any>;
     onMouseLeave?: React.MouseEventHandler<any>;
     value?: any;
     name?: string;
+    children?: React.ReactNode;
 }
 export interface CheckboxProps extends AbstractCheckboxProps {
     indeterminate?: boolean;

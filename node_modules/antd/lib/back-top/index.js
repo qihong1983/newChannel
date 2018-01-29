@@ -70,7 +70,7 @@ var easeInOutCubic = function easeInOutCubic(t, b, c, d) {
 };
 function noop() {}
 function getDefaultTarget() {
-    return typeof window !== 'undefined' ? window : null;
+    return window;
 }
 
 var BackTop = function (_React$Component) {
@@ -82,7 +82,8 @@ var BackTop = function (_React$Component) {
         var _this = (0, _possibleConstructorReturn3['default'])(this, (BackTop.__proto__ || Object.getPrototypeOf(BackTop)).call(this, props));
 
         _this.getCurrentScrollTop = function () {
-            var targetNode = (_this.props.target || getDefaultTarget)();
+            var getTarget = _this.props.target || getDefaultTarget;
+            var targetNode = getTarget();
             if (targetNode === window) {
                 return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
             }
@@ -122,7 +123,8 @@ var BackTop = function (_React$Component) {
     (0, _createClass3['default'])(BackTop, [{
         key: 'setScrollTop',
         value: function setScrollTop(value) {
-            var targetNode = (this.props.target || getDefaultTarget)();
+            var getTarget = this.props.target || getDefaultTarget;
+            var targetNode = getTarget();
             if (targetNode === window) {
                 document.body.scrollTop = value;
                 document.documentElement.scrollTop = value;
@@ -133,8 +135,9 @@ var BackTop = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
+            var getTarget = this.props.target || getDefaultTarget;
+            this.scrollEvent = (0, _addEventListener2['default'])(getTarget(), 'scroll', this.handleScroll);
             this.handleScroll();
-            this.scrollEvent = (0, _addEventListener2['default'])((this.props.target || getDefaultTarget)(), 'scroll', this.handleScroll);
         }
     }, {
         key: 'componentWillUnmount',

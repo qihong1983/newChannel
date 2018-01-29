@@ -7,9 +7,11 @@ export interface DropDownProps {
     style?: React.CSSProperties;
     onVisibleChange?: (visible?: boolean) => void;
     visible?: boolean;
+    disabled?: boolean;
     align?: Object;
     getPopupContainer?: (triggerNode: Element) => HTMLElement;
     prefixCls?: string;
+    className?: string;
     placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
 export default class Dropdown extends React.Component<DropDownProps, any> {

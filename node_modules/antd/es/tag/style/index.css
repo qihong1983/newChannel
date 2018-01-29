@@ -1,3 +1,6 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable declaration-bang-space-before */
+/* stylelint-disable declaration-bang-space-before */
 .ant-tag {
   display: inline-block;
   line-height: 20px;
@@ -7,7 +10,7 @@
   border: 1px solid #e9e9e9;
   background: #f3f3f3;
   font-size: 12px;
-  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   opacity: 1;
   margin-right: 8px;
   cursor: pointer;
@@ -39,7 +42,7 @@
   cursor: pointer;
   font-weight: bold;
   margin-left: 3px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   opacity: 0.66;
 }
 :root .ant-tag .anticon-cross {
@@ -66,13 +69,12 @@
   background-color: transparent;
   border-color: transparent;
 }
-.ant-tag-checkable:hover,
+.ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
+  color: #108ee9;
+}
 .ant-tag-checkable:active,
 .ant-tag-checkable-checked {
   color: #fff;
-}
-.ant-tag-checkable:hover {
-  background-color: #49a9ee;
 }
 .ant-tag-checkable-checked {
   background-color: #108ee9;

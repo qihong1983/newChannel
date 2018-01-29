@@ -9,7 +9,7 @@ export interface RowProps {
     style?: React.CSSProperties;
     prefixCls?: string;
 }
-export default class Row extends React.Component<RowProps, any> {
+export default class Row extends React.Component<RowProps, {}> {
     static defaultProps: {
         gutter: number;
     };

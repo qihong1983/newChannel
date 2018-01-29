@@ -59,8 +59,20 @@ var __rest = undefined && undefined.__rest || function (s, e) {
     }return t;
 };
 
+var SelectPropTypes = {
+    prefixCls: _propTypes2['default'].string,
+    className: _propTypes2['default'].string,
+    size: _propTypes2['default'].oneOf(['default', 'large', 'small']),
+    combobox: _propTypes2['default'].bool,
+    notFoundContent: _propTypes2['default'].any,
+    showSearch: _propTypes2['default'].bool,
+    optionLabelProp: _propTypes2['default'].string,
+    transitionName: _propTypes2['default'].string,
+    choiceTransitionName: _propTypes2['default'].string
+};
 // => It is needless to export the declaration of below two inner components.
 // export { Option, OptGroup };
+
 var Select = function (_React$Component) {
     (0, _inherits3['default'])(Select, _React$Component);
 
@@ -131,17 +143,7 @@ Select.defaultProps = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom'
 };
-Select.propTypes = {
-    prefixCls: _propTypes2['default'].string,
-    className: _propTypes2['default'].string,
-    size: _propTypes2['default'].oneOf(['default', 'large', 'small']),
-    combobox: _propTypes2['default'].bool,
-    notFoundContent: _propTypes2['default'].any,
-    showSearch: _propTypes2['default'].bool,
-    optionLabelProp: _propTypes2['default'].string,
-    transitionName: _propTypes2['default'].string,
-    choiceTransitionName: _propTypes2['default'].string
-};
+Select.propTypes = SelectPropTypes;
 Select.contextTypes = {
     antLocale: _propTypes2['default'].object
 };

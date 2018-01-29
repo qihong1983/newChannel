@@ -2,4 +2,5 @@ export default function calculateNodeHeight(uiTextNode: any, useCache?: boolean,
     height: any;
     minHeight: number;
     maxHeight: number;
+    overflowY: any;
 };

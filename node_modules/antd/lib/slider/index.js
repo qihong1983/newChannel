@@ -4,13 +4,13 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
-
 var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+var _extends3 = require('babel-runtime/helpers/extends');
+
+var _extends4 = _interopRequireDefault(_extends3);
 
 var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
@@ -71,7 +71,7 @@ var Slider = function (_React$Component) {
             _this.setState(function (_ref) {
                 var visibles = _ref.visibles;
                 return {
-                    visibles: Object.assign({}, visibles, (0, _defineProperty3['default'])({}, index, visible))
+                    visibles: (0, _extends4['default'])({}, visibles, (0, _defineProperty3['default'])({}, index, visible))
                 };
             });
         };
@@ -89,7 +89,7 @@ var Slider = function (_React$Component) {
             return _react2['default'].createElement(
                 _tooltip2['default'],
                 { prefixCls: tooltipPrefixCls, title: tipFormatter ? tipFormatter(value) : '', visible: tipFormatter && (visibles[index] || dragging), placement: 'top', transitionName: 'zoom-down', key: index },
-                _react2['default'].createElement(_Handle2['default'], (0, _extends3['default'])({}, restProps, { value: value, onMouseEnter: function onMouseEnter() {
+                _react2['default'].createElement(_Handle2['default'], (0, _extends4['default'])({}, restProps, { value: value, onMouseEnter: function onMouseEnter() {
                         return _this.toggleTooltipVisible(index, true);
                     }, onMouseLeave: function onMouseLeave() {
                         return _this.toggleTooltipVisible(index, false);
@@ -109,9 +109,9 @@ var Slider = function (_React$Component) {
                 range = _a.range,
                 restProps = __rest(_a, ["range"]);
             if (range) {
-                return _react2['default'].createElement(_Range2['default'], (0, _extends3['default'])({}, restProps, { handle: this.handleWithTooltip }));
+                return _react2['default'].createElement(_Range2['default'], (0, _extends4['default'])({}, restProps, { handle: this.handleWithTooltip }));
             }
-            return _react2['default'].createElement(_Slider2['default'], (0, _extends3['default'])({}, restProps, { handle: this.handleWithTooltip }));
+            return _react2['default'].createElement(_Slider2['default'], (0, _extends4['default'])({}, restProps, { handle: this.handleWithTooltip }));
         }
     }]);
     return Slider;

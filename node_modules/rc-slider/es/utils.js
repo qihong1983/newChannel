@@ -1,5 +1,6 @@
 import _toConsumableArray from 'babel-runtime/helpers/toConsumableArray';
 import { findDOMNode } from 'react-dom';
+import keyCode from 'rc-util/es/KeyCode';
 
 export function isEventFromHandle(e, handles) {
   return Object.keys(handles).some(function (key) {
@@ -79,4 +80,40 @@ export function ensureValuePrecision(val, props) {
 export function pauseEvent(e) {
   e.stopPropagation();
   e.preventDefault();
+}
+
+export function getKeyboardValueMutator(e) {
+  switch (e.keyCode) {
+    case keyCode.UP:
+    case keyCode.RIGHT:
+      return function (value, props) {
+        return value + props.step;
+      };
+
+    case keyCode.DOWN:
+    case keyCode.LEFT:
+      return function (value, props) {
+        return value - props.step;
+      };
+
+    case keyCode.END:
+      return function (value, props) {
+        return props.max;
+      };
+    case keyCode.HOME:
+      return function (value, props) {
+        return props.min;
+      };
+    case keyCode.PAGE_UP:
+      return function (value, props) {
+        return value + props.step * 2;
+      };
+    case keyCode.PAGE_DOWN:
+      return function (value, props) {
+        return value - props.step * 2;
+      };
+
+    default:
+      return undefined;
+  }
 }

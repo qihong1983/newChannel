@@ -122,11 +122,13 @@ var Cascader = function (_React$Component) {
             _this.setValue(value, selectedOptions);
         };
         _this.handlePopupVisibleChange = function (popupVisible) {
-            _this.setState({
-                popupVisible: popupVisible,
-                inputFocused: popupVisible,
-                inputValue: popupVisible ? _this.state.inputValue : ''
-            });
+            if (!('popupVisible' in _this.props)) {
+                _this.setState({
+                    popupVisible: popupVisible,
+                    inputFocused: popupVisible,
+                    inputValue: popupVisible ? _this.state.inputValue : ''
+                });
+            }
             var onPopupVisibleChange = _this.props.onPopupVisibleChange;
             if (onPopupVisibleChange) {
                 onPopupVisibleChange(popupVisible);
@@ -173,7 +175,7 @@ var Cascader = function (_React$Component) {
             e.stopPropagation();
             if (!_this.state.inputValue) {
                 _this.setValue([]);
-                _this.setState({ popupVisible: false });
+                _this.handlePopupVisibleChange(false);
             } else {
                 _this.setState({ inputValue: '' });
             }
@@ -182,7 +184,7 @@ var Cascader = function (_React$Component) {
             value: props.value || props.defaultValue || [],
             inputValue: '',
             inputFocused: false,
-            popupVisible: false,
+            popupVisible: props.popupVisible,
             flattenOptions: props.showSearch && _this.flattenTree(props.options, props.changeOnSelect)
         };
         return _this;
@@ -193,6 +195,9 @@ var Cascader = function (_React$Component) {
         value: function componentWillReceiveProps(nextProps) {
             if ('value' in nextProps) {
                 this.setState({ value: nextProps.value || [] });
+            }
+            if ('popupVisible' in nextProps) {
+                this.setState({ popupVisible: nextProps.popupVisible });
             }
             if (nextProps.showSearch && this.props.options !== nextProps.options) {
                 this.setState({ flattenOptions: this.flattenTree(nextProps.options, nextProps.changeOnSelect) });
@@ -226,7 +231,7 @@ var Cascader = function (_React$Component) {
             var flattenOptions = [];
             options.forEach(function (option) {
                 var path = ancestor.concat(option);
-                if (changeOnSelect || !option.children) {
+                if (changeOnSelect || !option.children || !option.children.length) {
                     flattenOptions.push(path);
                 }
                 if (option.children) {
@@ -332,7 +337,7 @@ var Cascader = function (_React$Component) {
                     { className: prefixCls + '-picker-label' },
                     this.getLabel()
                 ),
-                _react2['default'].createElement(_input2['default'], (0, _extends3['default'])({}, inputProps, { ref: 'input', placeholder: value && value.length > 0 ? undefined : placeholder, className: prefixCls + '-input ' + sizeCls, value: state.inputValue, disabled: disabled, readOnly: !showSearch, autoComplete: 'off', onClick: showSearch ? this.handleInputClick : undefined, onBlur: showSearch ? this.handleInputBlur : undefined, onKeyDown: this.handleKeyDown, onChange: showSearch ? this.handleInputChange : undefined })),
+                _react2['default'].createElement(_input2['default'], (0, _extends3['default'])({}, inputProps, { ref: 'input', prefixCls: inputPrefixCls, placeholder: value && value.length > 0 ? undefined : placeholder, className: prefixCls + '-input ' + sizeCls, value: state.inputValue, disabled: disabled, readOnly: !showSearch, autoComplete: 'off', onClick: showSearch ? this.handleInputClick : undefined, onBlur: showSearch ? this.handleInputBlur : undefined, onKeyDown: this.handleKeyDown, onChange: showSearch ? this.handleInputChange : undefined })),
                 clearIcon,
                 _react2['default'].createElement(_icon2['default'], { type: 'down', className: arrowCls })
             );

@@ -47,7 +47,7 @@ var Dragger = function (_React$Component) {
         value: function render() {
             var props = this.props;
 
-            return _react2['default'].createElement(_Upload2['default'], (0, _extends3['default'])({}, props, { type: 'drag', style: Object.assign({}, props.style, { height: props.height }) }));
+            return _react2['default'].createElement(_Upload2['default'], (0, _extends3['default'])({}, props, { type: 'drag', style: (0, _extends3['default'])({}, props.style, { height: props.height }) }));
         }
     }]);
     return Dragger;

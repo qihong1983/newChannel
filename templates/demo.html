@@ -37,6 +37,16 @@ body {
   width: 100%;
 }
    </style>
+
+   <script>
+    document.write('<script type="text/javascript" src="/webpack.assets.js?v='+Math.random()+'"><\/script>');
+</script>
+
+<script>
+    document.write('<link href="' + window.WEBPACK_ASSETS.app.css + '" rel="stylesheet" media="screen" />');
+</script>
+
+
 </head>
 
 <body style="background-color:white">
@@ -45,15 +55,21 @@ body {
         </div>
     </div>
 
-    <script src="/vendor.js"></script>
-
-   <script src="<%= htmlWebpackPlugin.files.chunks.app.entry %>"></script>
+    <!-- <script src="/vendor.js?t=20180111"></script> -->
 
     <script>
-    console.log('这里执行了');
+    
+      window.userInfo = {"msg":"","data":{"auth":"1,2,3,4","name":"齐洪","userName":"bjqihong"},"status":true};
 
-   JSON.stringify("./<%= htmlWebpackPlugin.files.chunks %>");
     </script>
+
+    <script>
+    document.write('<script type="text/javascript" src="' + window.WEBPACK_ASSETS.vendor.js + '"><\/script>');
+</script>
+    <script>
+    document.write('<script type="text/javascript" src="' + window.WEBPACK_ASSETS.app.js + '"><\/script>');
+</script>
+
 </body>
 
 </html>

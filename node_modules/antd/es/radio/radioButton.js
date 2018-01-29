@@ -1,3 +1,4 @@
+import _extends from 'babel-runtime/helpers/extends';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _createClass from 'babel-runtime/helpers/createClass';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
@@ -18,7 +19,7 @@ var RadioButton = function (_React$Component) {
     _createClass(RadioButton, [{
         key: 'render',
         value: function render() {
-            var radioProps = Object.assign({}, this.props);
+            var radioProps = _extends({}, this.props);
             if (this.context.radioGroup) {
                 radioProps.onChange = this.context.radioGroup.onChange;
                 radioProps.checked = this.props.value === this.context.radioGroup.value;

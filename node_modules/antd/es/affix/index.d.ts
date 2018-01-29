@@ -27,6 +27,8 @@ export default class Affix extends React.Component<AffixProps, any> {
     refs: {
         fixedNode: HTMLElement;
     };
+    events: string[];
+    eventHandlers: {};
     constructor(props: any);
     setAffixStyle(e: any, affixStyle: any): void;
     setPlaceholderStyle(placeholderStyle: any): void;
@@ -35,6 +37,6 @@ export default class Affix extends React.Component<AffixProps, any> {
     componentWillReceiveProps(nextProps: any): void;
     componentWillUnmount(): void;
     setTargetEventListeners(getTarget: any): void;
-    clearScrollEventListeners(): void;
+    clearEventListeners(): void;
     render(): JSX.Element;
 }

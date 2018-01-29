@@ -10,6 +10,7 @@ export interface BadgeProps {
     dot?: boolean;
     style?: React.CSSProperties;
     prefixCls?: string;
+    scrollNumberPrefixCls?: string;
     className?: string;
     status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
     text?: string;
@@ -17,6 +18,7 @@ export interface BadgeProps {
 export default class Badge extends React.Component<BadgeProps, any> {
     static defaultProps: {
         prefixCls: string;
+        scrollNumberPrefixCls: string;
         count: null;
         showZero: boolean;
         dot: boolean;
