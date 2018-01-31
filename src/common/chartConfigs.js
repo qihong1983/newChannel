@@ -1,4 +1,30 @@
-function Line(opt) {
+/**
+ * 图表模板 线图，柱状图，折叠柱状图通用
+ * @method Line 
+ * @param opt {Object} 	{
+			"names": ["miliao_news_group", "oppo_news", "huawei_store"],
+			"xAxis": ["2017-12-11", "2017-12-12"],
+			"series": [{
+				"name": "miliao_news_group",
+				"type": "line",
+				"stack": "miliao_news_group",
+				"data": [3.38, 4.17]
+			}, {
+				"name": "oppo_news",
+				"type": "line",
+				"stack": "oppo_news",
+				"data": [3.83, 9.72]
+			}, {
+				"name": "huawei_store",
+				"type": "line",
+				"stack": "huawei_store",
+				"data": [2.62, 4.67]
+			}]
+		}
+ * @return {Object} 模板
+ */
+
+const Line = (opt) => {
 
 	var config = {
 		"title": {
@@ -64,6 +90,16 @@ function Line(opt) {
 	return config;
 }
 
+const Pie = () => {
+
+}
+
+const Map = () => {
+
+}
+
 export {
-	Line
+	Line,
+	Pie,
+	Map
 };

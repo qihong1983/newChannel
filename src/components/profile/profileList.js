@@ -755,9 +755,9 @@ class ProfileList extends React.Component {
                   
                 </TabPane>
                 <TabPane tab="回访用户" key="4">
-                  <div style={{width:"100%"}} className="clearfix">
+{/*                  <div style={{width:"100%"}} className="clearfix">
                     <Button type="primary" icon="plus" style={{float:"right"}} onClick={this.showModal.bind(this)}>对比</Button>
-                  </div>
+                  </div>*/}
                   <Spin spinning={this.props.profileList.ChartLoading.chartLoading} >
                     <div id="chart4" ref="charts4"  style={{ width: "100%", minHeight: "300px" }}>
                       回访用户
@@ -775,9 +775,9 @@ class ProfileList extends React.Component {
                   </Spin>
                 </TabPane>
                 <TabPane tab="回归用户" key="6">
-                  <div style={{width:"100%"}} className="clearfix">
+{/*                  <div style={{width:"100%"}} className="clearfix">
                     <Button type="primary" icon="plus" style={{float:"right"}} onClick={this.showModal.bind(this)}>对比</Button>
-                  </div>
+                  </div>*/}
                   <Spin spinning={this.props.profileList.ChartLoading.chartLoading} >
                     <div id="chart6" ref="charts6"  style={{ width: "100%", minHeight: "300px" }}>
                       回归用户

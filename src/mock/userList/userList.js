@@ -1,22 +1,10 @@
 import Mock from 'mockjs';
 
 
-// Mock.mock("/user/list.do", "post", {
-// 	"status": true,
-// 	"msg": "返回成功",
-// 	"data|3": [{
-// 		"id": "@natural(1000, 10000)",
-// 		"date": "@datetime('yyyy-MM-dd')",
-// 		"newUsers": "@natural(1000, 10000)",
-// 		"activeUser": "@natural(1000, 10000)"
-// 	}]
-// });
-
-
 Mock.mock("/user/list.do", "post", {
 	"msg": "返回成功",
-	"total": "@natural(1000, 10000)",
-	"data|10": [{
+	"total": "@natural(0, 1000)",
+	"data|0-10": [{
 		"cname": "@cname",
 		"ctime": "@datetime('yyyy-MM-dd')",
 		"email": "@email",

@@ -6,7 +6,7 @@ import {
 } from 'antd';
 
 const updateSystemAjax = (data, callback) => {
-	console.log('###参数###', data);
+	console.log('###获取用户权限参数###', data);
 
 	return function(dispatch) {
 		//发送请求
@@ -21,7 +21,7 @@ const updateSystemAjax = (data, callback) => {
 				"aaa": "bbb"
 			}
 		}).then((msg) => {
-			console.log(msg, '### 删除 ###');
+			console.log(msg, '### 获取用户权限响应 ###');
 			if (msg.status) {
 				// debugger;
 				window.userInfo.data.auth = msg.data.auth;
@@ -31,7 +31,7 @@ const updateSystemAjax = (data, callback) => {
 				callback(true);
 			} else {
 				notification['error']({
-					message: '获取系统用户失败',
+					message: '获取系统权限失败',
 					description: msg.msg,
 				});
 			}

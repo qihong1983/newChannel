@@ -260,14 +260,12 @@
 
 	            <Route path="user" component={User} onEnter={
 	            	(nextState, replace) => {
-	            		let key = "4";
-	            		debugger;
+	            		let key = "4";	            		
 	            		isAllow(key, replace);
-	            		debugger;
 	            	}
 	            }>
 	            	<IndexRedirect to="list" />
-	            	<Route  path="list" component={UserList}>
+	            	<Route  path="list" component={User}>
 	            		<IndexRoute getComponent={UserListIndex} />
 
 	            		<Route  path="create" getComponent={CreateUser}></Route>

@@ -43,7 +43,6 @@ const {
 
 const Search = Input.Search;
 
-
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -55,9 +54,7 @@ import TopNav from "../topNav/topNav";
 
 import UserLeftNav from "../userLeftNav/userLeftNav";
 
-
 class UserListIndex extends React.Component {
-
 
 	constructor(props) {
 		super(props);
@@ -73,8 +70,6 @@ class UserListIndex extends React.Component {
 	componentDidMount() {
 		NProgress.done();
 	}
-
-
 
 	getTableData() {
 		var data = {

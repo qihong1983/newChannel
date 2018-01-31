@@ -1,23 +1,5 @@
 import Mock from 'mockjs';
 
-// Mock.mock("/data/overview/channelGroup.do", "post", {
-// 	"status": true,
-// 	"msg": "返回成功",
-// 	"data|10": [{
-// 		"activeUser": "@natural(1000, 10000)",
-// 		"backUser":   "@natural(1000, 10000)",
-// 		"day":   "@datetime('yyyy-MM-dd')",
-// 		"loseUser":   "@natural(1000, 10000)",
-// 		"newUser":   "@natural(1000, 10000)",
-// 		"newUserQuality":   "@natural(1000, 10000)",
-// 		"outUser":   "@natural(1000, 10000)",
-// 		"qualityPer":   "@float(10, 10.0, 2, 2)",
-// 		"visitUser":   "@natural(1000, 10000)"
-// 	}],
-// 	"total": "@natural(100, 999)"
-// });
-
-
 
 Mock.mock("/data/overview/channelGroup.do", "post", {
 	"status": true,
